@@ -1,22 +1,5 @@
 <h1 align="center">👋 hey there I'm Antoine Quendez</h1>
 
-###
-
-<h3 align="left">👩‍💻  About Me</h3>
-
-###
-
-
-  <img height="300" src="img/me_profil-bw.png"/>
-<p align="left">I'm  Antoine Quendez from Rochefort , France<br><br>- 🔭 I’m working as Web Developper<br>- 📚 I'm currently learning new languages .<br>- ⚡ In my free time I like to cook , go out and dine, listen some music and relax, share moments with the people i care about.</p>
-
-###
-
-<div align="center">
-  <a href="https://www.linkedin.com/in/antoinequendez/" target="_blank">
-    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/linkedin/default.svg" width="52" height="40" alt="linkedin logo"  />
-  </a>
-</div>
 
 ###
 
@@ -51,6 +34,25 @@
 </div>
 
 ###
+
+###
+
+<h3 align="left">👩‍💻  About Me</h3>
+
+###
+
+
+<p align="left">I'm  Antoine Quendez from Rochefort , France<br><br>- 🔭 I’m working as Web Developper<br>- 📚 I'm currently learning new languages .<br>- ⚡ In my free time I like to cook , go out and dine, listen some music and relax, share moments with the people i care about.</p>
+
+###
+
+<div align="center">
+  <a href="https://www.linkedin.com/in/antoinequendez/" target="_blank">
+    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/linkedin/default.svg" width="52" height="40" alt="linkedin logo"  />
+  </a>
+</div>
+
+
 
 <h3 align="left">🔥   My Stats :</h3>
 
