@@ -49,12 +49,12 @@
 ###
 ###
 
-<h3 align="left">👩‍💻  About Me</h3>
+<h3 align="left">🧑🏻‍💻 About Me</h3>
 
 ###
 
 
-<p align="left">I'm  Antoine Quendez from Rochefort , France<br><br>- 🔭 I’m working as Web Developper<br>- 📚 I'm currently learning new languages .<br>- ⚡ In my free time I like to cook , go out and dine, listen some music and relax, share moments with the people i care about.</p>
+<p align="left">I'm  Antoine Quendez from La Rochelle , France<br><br>- 🔭 I’m working as Web Developper<br>- 📚 I'm currently learning new languages .<br>- ⚡ In my free time I like to cook , go out and dine, listen some music and relax, share moments with the people i care about.</p>
 
 ###
 
