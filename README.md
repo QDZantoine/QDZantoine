@@ -41,7 +41,7 @@ Occitanie (Montpellier / Béziers) · mobile France entière</p>
 Développeur full stack TypeScript / React, je travaille du cadrage au déploiement, puis je transmets.
 
 - 🧑‍🏫 **Formateur & développeur web** chez LessonSharing, organisme de formation du groupe Hexceos (cybersécurité, infogérance, hébergement, data, IA)
-- 🚀 **Co-fondateur d'Heliara**, la marque du groupe dédiée au sur-mesure : web-apps, ERP, CRM, SaaS, sites, automatisations, IA. J'en ai créé l'identité, le logo, les valeurs et le site.
+- 🚀 **Co-fondateur d'[Heliara](https://heliara.fr/)**, la marque du groupe dédiée au sur-mesure : web-apps, ERP, CRM, SaaS, sites, automatisations, IA. J'en ai créé l'identité, le logo, les valeurs et le site.
 - 💼 **Développeur indépendant** sous le nom Anthea
 - 🎓 **M2 MBA Développeur Full Stack** à MyDigitalSchool Montpellier (licence Concepteur Développeur Web)
 - ⚓ **Ancien de la Marine nationale** : rigueur, esprit d'équipe, fiabilité
@@ -113,9 +113,7 @@ Je conçois et j'anime des formations techniques en entreprise et en centre de f
 <h3><code>antoine@github ~ $ ./contact.sh</code></h3>
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-antoinequendez-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/antoinequendez/)
-<!-- À compléter :
-[![Heliara](https://img.shields.io/badge/Heliara-site-0d1117?style=for-the-badge&logo=googlechrome&logoColor=white)](URL_HELIARA)
-[![Email](https://img.shields.io/badge/Email-contact-0d1117?style=for-the-badge&logo=gmail&logoColor=white)](mailto:EMAIL)
--->
+[![Heliara](https://img.shields.io/badge/Heliara-heliara.fr-0d1117?style=for-the-badge&logo=googlechrome&logoColor=white)](https://heliara.fr/)
+[![Email](https://img.shields.io/badge/Email-quendez.antoine@heliara.fr-0d1117?style=for-the-badge&logo=maildotru&logoColor=white)](mailto:quendez.antoine@heliara.fr)
 
 </div>
