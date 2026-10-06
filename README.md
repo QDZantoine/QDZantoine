@@ -48,18 +48,6 @@ Développeur full stack TypeScript / React, je travaille du cadrage au déploiem
 
 4 ans de développement, dont un passage en agence web, et 1 an de formation. Je travaille en français et je forme aussi en espagnol.
 
-## `$ ls ./projects`
-
-| Projet | Ce que c'est |
-|---|---|
-| 🎙️ **Maia** | Agent vocal IA temps réel (STT + LLM + TTS en streaming). Objectif : une plateforme d'agents vocaux auto-hébergée et souveraine, avec des agents configurables (prompt, voix, outils métier) et un prototype d'enceinte connectée. |
-| ⚖️ **SaaS d'IA juridique** | Génération documentaire pour un département juridique (contrats, corporate, RH). Modèle d'IA local, hébergement souverain en France, double validation humaine, signature électronique. |
-| 🧩 **Plateforme de challenges data / IA** | Pour un hackathon : 20 niveaux de prompt hacking, tokenisation, data. Livrée en Docker avec un LLM local via Ollama. |
-| 🏭 **Applications métier sur-mesure** | Gestion pour un négociant automobile (achats en lots, intégration ANTS pour les cartes grises, accès mobile terrain), plateforme interne de centralisation des déplacements professionnels. |
-| ✨ **Sites vitrines immersifs** | Storytelling et animations au scroll avec GSAP, ScrollTrigger et Lenis. |
-
-<sub>Projets clients anonymisés.</sub>
-
 ## `$ ls ./stack`
 
 **Front**<br>
@@ -96,11 +84,14 @@ Ateliers de co-conception, gestion de projet, code propre et documenté, donnée
 
 ## `$ ./teach.sh`
 
-Je conçois et j'anime des formations techniques en entreprise et en centre de formation, notamment **SQL pour non-informaticiens**.
+Je conçois et j'anime des formations techniques en entreprise et en centre de formation, principalement autour du **développement web** :
 
-- **Publics** : étudiants, profils métier non techniques, personnes en reconversion, développeurs
-- **Pédagogie** : séquençage formalisé, TD/TP sur une base de données fil rouge, quiz web maison, requêtes co-construites en direct
-- **Hackathons** data / IA organisés pour des étudiants
+- **Développement** : fondamentaux, front, back, bases de données et SQL
+- **Conformité & qualité** : accessibilité RGAA, RGPD, bonnes pratiques
+- **SEO & GEO appliqués au dev** : référencement technique et visibilité dans les moteurs IA
+- **Concepts IA** : LLM, prompt engineering, usages et limites
+
+Pour des étudiants, des développeurs, des profils métier non techniques et des personnes en reconversion. J'organise aussi des hackathons data / IA pour étudiants.
 
 ## `$ cat values.txt`
 
