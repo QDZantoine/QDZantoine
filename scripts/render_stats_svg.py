@@ -23,14 +23,15 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "..", "data", "contributions.json")
 OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, "..", "stats.svg")
 
-BG = "#0d1117"
-BG2 = "#111722"
-TILE = "#161b22"
-FRAME = "#30363d"
-MUTED = "#7d8590"
-INK = "#e6edf3"
-GREEN = "#39d353"
-BAR = "#26a641"
+BG = "#0b0b0d"
+BG2 = "#151517"
+TILE = "#1d1d21"
+FRAME = "#2a2a2e"
+MUTED = "#8f8f89"
+INK = "#f2f2f0"
+GREEN = "#f0824b"
+ACCENT = "#e9591f"
+BAR = "#e9591f"
 
 W, H = 840, 880                      # == portrait.svg canvas
 PAD = 20
@@ -52,12 +53,16 @@ BAR_STAGGER = 0.06
 BAR_DUR = 0.6
 
 
+MOIS = ["janv", "févr", "mars", "avr", "mai", "juin", "juil", "août", "sept", "oct", "nov", "déc"]
+
+
 def short(d):
-    return datetime.date.fromisoformat(d).strftime("%b %-d")
+    date = datetime.date.fromisoformat(d)
+    return f"{date.day} {MOIS[date.month - 1]}"
 
 
 def span(s):
-    return f'{short(s["start"])} – {short(s["end"])}' if s["length"] else "—"
+    return f'{short(s["start"])} - {short(s["end"])}' if s["length"] else "-"
 
 
 data = json.load(open(SRC))
@@ -66,17 +71,17 @@ n_days = len(data["days"])
 
 # (label, value, suffix, caption, accent)
 tiles = [
-    ("current streak", cur["length"], " days", span(cur), GREEN),
-    ("longest streak", lng["length"], " days", span(lng), INK),
-    ("contributions", data["total_contributions"], "", "in the last year", INK),
-    ("active days", data["active_days"], f" / {n_days}", f'{data["active_days"] / n_days:.0%} of the year', INK),
-    ("best day", best["count"], "", short(best["date"]), INK),
-    ("avg / active day", data["avg_per_active_day"], "", "contributions", INK),
+    ("série actuelle", cur["length"], " j", span(cur), GREEN),
+    ("meilleure série", lng["length"], " j", span(lng), INK),
+    ("contributions", data["total_contributions"], "", "sur 12 mois", INK),
+    ("jours actifs", data["active_days"], f" / {n_days}", f'{data["active_days"] / n_days:.0%} de l\'année', INK),
+    ("record / jour", best["count"], "", short(best["date"]), INK),
+    ("moyenne / jour actif", data["avg_per_active_day"], "", "contributions", INK),
 ]
 
 
 def fmt(v, like):
-    return f"{v:,.1f}" if isinstance(like, float) else f"{int(round(v)):,}"
+    return f"{v:.1f}".replace(".", ",") if isinstance(like, float) else f"{int(round(v)):,}".replace(",", " ")
 
 
 parts = [
@@ -95,10 +100,9 @@ parts = [
     f'<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="{FRAME}"/>',
     f'<line x1="0" y1="{TITLEBAR_H}" x2="{W}" y2="{TITLEBAR_H}" stroke="{FRAME}"/>',
 ]
-for i, dot in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
-    parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dot}"/>')
-parts.append(f'<text x="{W/2}" y="{TITLEBAR_H/2 + 4}" fill="{MUTED}" font-size="12" '
-             f'text-anchor="middle">antoine@github: ~$ ./stats.sh</text>')
+parts.append(f'<circle cx="{PAD + 5}" cy="{TITLEBAR_H/2}" r="5" fill="{ACCENT}"/>')
+parts.append(f'<text x="{PAD + 20}" y="{TITLEBAR_H/2 + 4}" fill="{MUTED}" font-size="12" '
+             f'letter-spacing="1.5">ANTOINE.QUENDEZ / STATS</text>')
 
 # ---- stat tiles ----------------------------------------------------------
 for i, (label, value, suffix, caption, accent) in enumerate(tiles):
@@ -111,7 +115,7 @@ for i, (label, value, suffix, caption, accent) in enumerate(tiles):
     parts.append(f'<g class="t" style="animation-delay:{start:.2f}s">')
     parts.append(f'<rect x="{x:.1f}" y="{y}" width="{TILE_W:.1f}" height="{TILE_H}" rx="10" '
                  f'fill="{TILE}" stroke="{FRAME}"/>')
-    parts.append(f'<text x="{x+24:.1f}" y="{y+40}" fill="{MUTED}" font-size="22">$ {label}</text>')
+    parts.append(f'<text x="{x+24:.1f}" y="{y+40}" fill="{MUTED}" font-size="20" letter-spacing="1">{label.upper()}</text>')
 
     # count-up frames: ease-out so it decelerates into the real number
     num_y = y + 100
@@ -138,7 +142,7 @@ chart_h = H - PAD - CHART_TOP
 parts.append(f'<g class="t" style="animation-delay:{BAR_START - 0.3:.2f}s">')
 parts.append(f'<rect x="{chart_x}" y="{CHART_TOP}" width="{chart_w}" height="{chart_h}" rx="10" '
              f'fill="{TILE}" stroke="{FRAME}"/>')
-parts.append(f'<text x="{chart_x+24}" y="{CHART_TOP+40}" fill="{MUTED}" font-size="22">$ contributions / month</text>')
+parts.append(f'<text x="{chart_x+24}" y="{CHART_TOP+40}" fill="{MUTED}" font-size="20" letter-spacing="1">CONTRIBUTIONS / MOIS</text>')
 parts.append('</g>')
 
 plot_top = CHART_TOP + 64
@@ -154,7 +158,8 @@ for i, m in enumerate(monthly):
     delay = BAR_START + i * BAR_STAGGER
     parts.append(f'<rect class="b" x="{bx:.1f}" y="{plot_bot - h:.1f}" width="{bar_w:.1f}" height="{h:.1f}" '
                  f'rx="3" fill="{fill}" style="animation-delay:{delay:.2f}s"/>')
-    mon = datetime.date.fromisoformat(m["month"] + "-01").strftime("%b")[0]
+    mon = datetime.date.fromisoformat(m["month"] + "-01").strftime("%m")
+    mon = "JFMAMJJASOND"[int(mon) - 1]
     parts.append(f'<text x="{bx + bar_w/2:.1f}" y="{plot_bot + 28}" fill="{MUTED}" font-size="18" '
                  f'text-anchor="middle">{mon}</text>')
     if m["total"] == peak:

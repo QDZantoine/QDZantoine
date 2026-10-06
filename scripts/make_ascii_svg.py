@@ -48,12 +48,13 @@ ART_H = ROWS * CELL_H
 CANVAS_W = ART_W + PAD * 2
 CANVAS_H = TITLEBAR_H + ART_H + STATUS_H + PAD
 
-BG = "#0d1117"
-BG2 = "#111722"
-FRAME = "#30363d"
-TITLE_TEXT = "#7d8590"
-INK = "#c9d1d9"      # the single ascii color (matches Andrew6rant)
-CURSOR = "#c9d1d9"
+BG = "#0b0b0d"
+BG2 = "#151517"
+FRAME = "#2a2a2e"
+TITLE_TEXT = "#8f8f89"
+INK = "#f2f2f0"      # the single ascii color
+ACCENT = "#f0824b"
+CURSOR = "#f0824b"
 
 # ---- reveal timing (one-shot; a cursor rasters top -> bottom) -------------
 ROW_DUR = 5.8 / ROWS  # whole portrait prints in ~6s at any resolution
@@ -103,10 +104,9 @@ parts.append(f'<rect x="0.5" y="0.5" width="{CANVAS_W-1}" height="{CANVAS_H-1}" 
              f'fill="none" stroke="{FRAME}" stroke-width="1"/>')
 
 parts.append(f'<line x1="0" y1="{TITLEBAR_H}" x2="{CANVAS_W}" y2="{TITLEBAR_H}" stroke="{FRAME}"/>')
-for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
-    parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
-parts.append(f'<text x="{CANVAS_W/2}" y="{TITLEBAR_H/2 + 4}" fill="{TITLE_TEXT}" font-size="12" '
-             f'text-anchor="middle">antoine@github: ~$ ./portrait.sh</text>')
+parts.append(f'<circle cx="{PAD + 5}" cy="{TITLEBAR_H/2}" r="5" fill="{ACCENT}"/>')
+parts.append(f'<text x="{PAD + 20}" y="{TITLEBAR_H/2 + 4}" fill="{TITLE_TEXT}" font-size="12" '
+             f'letter-spacing="1.5">ANTOINE.QUENDEZ / PORTRAIT</text>')
 
 # one <text> per row (single color -> no per-char markup, tiny file)
 font_size = CELL_H * 0.86
@@ -141,9 +141,9 @@ status_line_y = TITLEBAR_H + ART_H + PAD * 0.35
 status_y = status_line_y + 19
 parts.append(f'<line x1="0" y1="{status_line_y:.1f}" x2="{CANVAS_W}" y2="{status_line_y:.1f}" stroke="{FRAME}"/>')
 parts.append(f'<text x="{PAD}" y="{status_y:.1f}" fill="{TITLE_TEXT}" font-size="13">'
-             f'antoine@github:~$ whoami <tspan fill="{INK}">Antoine Quendez</tspan></text>')
-status_chars = len("antoine@github:~$ whoami Antoine Quendez ")   # cursor sits after the name
-parts.append(f'<rect x="{PAD + status_chars * 13 * 0.6:.1f}" y="{status_y-12:.1f}" width="8" height="14" fill="{INK}">'
+             f'<tspan fill="{ACCENT}">❯</tspan> whoami <tspan fill="{INK}">Antoine Quendez</tspan></text>')
+status_chars = len("❯ whoami Antoine Quendez ")   # cursor sits after the name
+parts.append(f'<rect x="{PAD + status_chars * 13 * 0.6:.1f}" y="{status_y-12:.1f}" width="8" height="14" fill="{ACCENT}">'
              f'<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.51;1" '
              f'dur="1s" repeatCount="indefinite"/></rect>')
 
